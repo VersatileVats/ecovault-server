@@ -22,8 +22,7 @@ const digestAuth = new AxiosDigestAuth({
 });
 
 // Importing dependencies and setting up http server
-const request = require("request"),
-  express = require("express"),
+const express = require("express"),
   body_parser = require("body-parser"),
   axios = require("axios").default,
   app = express().use(body_parser.json());

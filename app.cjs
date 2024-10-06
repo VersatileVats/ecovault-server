@@ -29,10 +29,15 @@ const express = require("express"),
 
 app.use(cors());
 
-let port = 8000,
-  ip = "0.0.0.0";
-app.listen(port, ip);
-console.log("Server running on http://%s:%s", ip, port);
+// let port = 8000,
+//   ip = "0.0.0.0";
+// app.listen(port, ip);
+// console.log("Server running on http://%s:%s", ip, port);
+
+let port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
 
 // Utilities function
 async function chat2Query(prompt) {

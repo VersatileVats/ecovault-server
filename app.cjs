@@ -97,11 +97,15 @@ app.get("/", async (req, res) => {
 
 app.post("/getUser", async (req, res) => {
   console.log("Getting the user details");
-  const user = await knex("e_brands")
-    .select("*")
-    .where({ bEmail: req.body.email });
-  if (!user.length) res.send({ result: false });
-  else res.send({ result: true });
+  try {
+    const user = await knex("e_brands")
+      .select("*")
+      .where({ bEmail: req.body.email });
+    if (!user.length) res.send({ result: false, error: false });
+    else res.send({ result: true, error: false }); 
+  } catch(err) {
+    res.send({  result: false, error: true  });
+  }
 });
 
 app.get("/delete", async (req, res) => {

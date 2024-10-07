@@ -98,9 +98,10 @@ app.get("/", async (req, res) => {
 app.post("/getUser", async (req, res) => {
   console.log("Getting the user details");
   try {
-    const user = await knex("e_brands")
-      .select("*")
-      .where({ bEmail: req.body.email });
+    let user;
+    if(req.body.bEmail) user = await knex("e_brands").select("*").where({ bEmail: req.body.bEmail });
+    else if(req.body.uEmail) user = await knex("e_users").select("*").where({ uEmail: req.body.uEmail });
+    
     if (!user.length) res.send({ result: false, error: false });
     else res.send({ result: true, error: false }); 
   } catch(err) {

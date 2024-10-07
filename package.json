@@ -1,6 +1,6 @@
 {
-  "name": "node-server",
-  "version": "5.0.0",
+  "name": "ecovault-server",
+  "version": "1.0.0",
   "description": "A project made with heart and soul",
   "main": "app.cjs",
   "type": "module",
@@ -10,12 +10,12 @@
   "author": "Vishal Vats",
   "license": "ISC",
   "dependencies": {
-    "knex": "^2.4.2",
-    "cors": "^2.8.5",
-    "mysql": "^2.18.1",
+    "@mhoc/axios-digest-auth": "^0.8.0",
     "axios": "^0.27.2",
-    "express": "^4.18.1",
     "body-parser": "^1.20.0",
-    "@mhoc/axios-digest-auth": "^0.8.0"
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1"
   }
 }
